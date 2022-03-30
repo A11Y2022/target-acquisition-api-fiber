@@ -5,7 +5,7 @@ import (
 	"os"
 
 	conf "github.com/A11Y2022/target-acquisition-api-fiber/config"
-    test "github.com/A11Y2022/target-acquisition-api-fiber/handlers"
+    test "github.com/A11Y2022/target-acquisition-api-fiber/testSession"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
