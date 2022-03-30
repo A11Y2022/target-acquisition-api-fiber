@@ -4,12 +4,12 @@ import (
 	"log"
 	"os"
 
-	conf "github.com/A11Y2022/target-acquisition-api-fiber/config"
-    test "github.com/A11Y2022/target-acquisition-api-fiber/testSession"
-	"github.com/gofiber/fiber/v2"
+    "github.com/joho/godotenv"
+    "github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
-	"github.com/joho/godotenv"
+	conf "github.com/A11Y2022/target-acquisition-api-fiber/app/config"
+    test "github.com/A11Y2022/target-acquisition-api-fiber/app/testSession"
 )
 
 
