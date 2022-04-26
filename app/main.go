@@ -2,14 +2,13 @@ package main
 
 import (
 	"log"
-	"os"
 
-    "github.com/joho/godotenv"
-    "github.com/gofiber/fiber/v2"
+	conf "github.com/A11Y2022/target-acquisition-api-fiber/app/configs"
+	test "github.com/A11Y2022/target-acquisition-api-fiber/app/testSession"
+	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
-	conf "github.com/A11Y2022/target-acquisition-api-fiber/app/config"
-    test "github.com/A11Y2022/target-acquisition-api-fiber/app/testSession"
+	"github.com/joho/godotenv"
 )
 
 
@@ -18,11 +17,9 @@ func initRoutes(app *fiber.App){
 }
 
 func main() {
-    if os.Getenv("APP_ENV") != "production" {
-        err := godotenv.Load()
-        if err != nil {
-            log.Fatal("Error loading .env file")
-        }
+    err := godotenv.Load("./configs/.env")
+    if err != nil {
+        log.Fatal("Error loading .env file")
     }
     
     app := fiber.New()

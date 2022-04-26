@@ -1,7 +1,7 @@
 package testSessionHandler
 
 import (
-	session "github.com/A11Y2022/target-acquisition-api-fiber/testSession"
+	session "github.com/A11Y2022/target-acquisition-api-fiber/app/testSession"
     "github.com/gofiber/fiber/v2"
 )
 func GetTestSessionRoutes(app *fiber.App){

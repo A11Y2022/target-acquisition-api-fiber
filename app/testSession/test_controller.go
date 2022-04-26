@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	conf "github.com/A11Y2022/target-acquisition-api-fiber/app/config"
+	conf "github.com/A11Y2022/target-acquisition-api-fiber/app/configs"
 	"github.com/gofiber/fiber/v2"
 )
 
