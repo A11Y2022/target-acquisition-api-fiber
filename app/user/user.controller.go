@@ -1,19 +1,21 @@
-package testSession
+package user
 
 import (
 	"context"
 	"log"
 	"time"
-	"github.com/gofiber/fiber/v2"
+
 	conf "github.com/A11Y2022/target-acquisition-api-fiber/app/configs"
+	"github.com/gofiber/fiber/v2"
 )
 
-func PostTestConfig(c *fiber.Ctx) error {
-	testInputCollection := conf.MI.DB.Collection("TestInput")
-	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
-	TestInput := new(Config)
+func PostUserLogin(c *fiber.Ctx) error {
 	
-	if err := c.BodyParser(TestInput); err != nil {
+	userInputCollection := conf.MI.DB.Collection("Users")
+	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
+	UserInput := new(User)
+
+	if err := c.BodyParser(UserInput); err != nil {
 		log.Println(err)
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"success": false,
@@ -22,7 +24,7 @@ func PostTestConfig(c *fiber.Ctx) error {
 		})
 	}
 
-	result, err := testInputCollection.InsertOne(ctx, TestInput)
+	result, err := userInputCollection.InsertOne(ctx, UserInput)
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"success": false,
@@ -35,5 +37,4 @@ func PostTestConfig(c *fiber.Ctx) error {
 		"success": true,
 		"message": "TestInput inserted successfully",
 	})
-
 }
